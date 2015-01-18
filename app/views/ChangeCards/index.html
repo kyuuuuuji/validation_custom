@@ -1,0 +1,11 @@
+#{form @ChangeCards.confirm()}
+	<div>
+		cardNo:<input type="text" name="changeCard.cardNo" value="${changeCard.cardNo}" />
+		<span class="error">#{error 'changeCard.cardNo'/}</span>
+	</div>
+
+	<input type="hidden" name="changeCard.brandId" value="${changeCard.brandId}" />
+
+	<input type="submit" value="submit"/>
+	
+#{/form}
