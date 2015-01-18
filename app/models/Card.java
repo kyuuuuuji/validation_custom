@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -16,6 +18,9 @@ public class Card extends Model {
 
 	public static boolean existsInBrand(String no, String brandId) {
 		// ブランド内で一意なカード的な
-		return true;
+		List<Card> card = Card.find("select card from Card card "
+				+ "where card.brand_id like ? "
+				+ "and card.no like ?", brandId, no).fetch();
+		return card.size() != 0;
 	}
 }
